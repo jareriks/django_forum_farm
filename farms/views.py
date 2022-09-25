@@ -10,7 +10,7 @@ def farm_name(request):
         address_form = forms.AddressCreateForm(request.POST)
 
         # Checking all the forms for validation
-        if farm_form.is_valid and phone_form.is_valid and address_form.is_valid:
+        if farm_form.is_valid() and phone_form.is_valid() and address_form.is_valid():
 
             farm = farm_form.save(commit=False)     # before we save into the db
             farm.recorded_by = request.user         # we assigne the user -> this will fail if you are not logged in, try to login with your superuser for example
